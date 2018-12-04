@@ -23,7 +23,7 @@ const appRoutes: Routes = [
   },
 {
     path: 'signup',
-    component: ContactEditComponent,
+    component: SignupComponent,
     data: { title: 'user add' }
   },
 {
@@ -55,8 +55,8 @@ const appRoutes: Routes = [
     redirectTo: '/login',
     pathMatch: 'full'
   },
-  {
-      path: 'customer',
+  {     
+      path: 'Customer',
     component: CustomerComponent,
     data: { title: 'Customer List' }
   }

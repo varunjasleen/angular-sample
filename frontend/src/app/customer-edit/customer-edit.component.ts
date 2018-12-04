@@ -22,6 +22,6 @@ console.log("id",this.route.snapshot.params['id'])
  this.a=data;
      console.log("data",data);
   }
-  };
+  },
 
 }
