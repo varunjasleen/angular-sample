@@ -1,5 +1,7 @@
 package com.temp.angular.models;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -14,21 +16,28 @@ public class User {
 	String email;
 	String rollRequested;
 	String rollassign;
+	 String password;
 	
 	public User(){
 		
 		}
 	
-	public User(String name,String address,String city,String phone,String email,String rollRequested,String rollassign) {
-		this.name=name;
-		this.address=address;
-		this.city=city;
-		this.phone=phone;
-		this.email=email;
-		this.rollRequested=rollRequested;
-		this.rollassign=rollassign;
-	}
 	
+	public User(String id, String name, String address, String city, String phone, String email, String rollRequested,
+			String rollassign, String password) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.address = address;
+		this.city = city;
+		this.phone = phone;
+		this.email = email;
+		this.rollRequested = rollRequested;
+		this.rollassign = rollassign;
+		this.password = password;
+	}
+
+
 	public String getId() {
 		return id;
 	}
@@ -77,6 +86,15 @@ public class User {
 	public void setRollassign(String rollassign) {
 		this.rollassign = rollassign;
 	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	
 
 }

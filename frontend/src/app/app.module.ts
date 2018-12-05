@@ -31,6 +31,11 @@ const appRoutes: Routes = [
     component: LoginComponent,
     data: { title: 'User Login' }
   },
+  {
+      path: 'customer/:id',
+      component: CustomerComponent,
+      data: { title: 'User List' }
+    },
 {
     path: 'customer-edit/:id',
     component: CustomerEditComponent,

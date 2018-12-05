@@ -6,14 +6,18 @@ import { HttpClient } from  '@angular/common/http';
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
-customers:any;
-  constructor(private http:HttpClient) { }
+customers : any;
+  constructor(private http:HttpClient) {
+      
+  }
 
   ngOnInit() {
-      this.http.get('http://localhost:8080/customer',).subscribe(data =>{
-      this.customers=data;
-          console.log("data",data);    
-      })
+      console.log("dataaaaaaaaaaaa",this.customers);
+      this.http.get('http://localhost:8080/users').subscribe(data =>  {
+          this.customers=data;
+             console.log("data from list :: ",data);
+          });
   }
+ 
 
 }

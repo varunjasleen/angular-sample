@@ -1,23 +1,23 @@
 <div>
 <h1>Customer List </h1>
 
-<table>
-<thead>
+<table class="table">
+<thead class="thead-dark">
 <tr>
 <th>Name</th>
 <th>Address</th>
 <th>Contect</th>
-<th>Age</th>
+<th>Friend Status</th>
 </tr>
 </thead>
 <tbody>
 <tr *ngFor="let a of customers">
 <td>{{a.name}}</td>
 <td>{{a.address}}</td>
-<td>{{a.contect}}</td>
-<td>{{a.age}}</td>
+<td>{{a.phone}}</td>
+
 <td>
-<a [routerLink]="['/customer-edit',a.id]">Edit </a>
+<a [routerLink]="['/customer-edit',a.id]">Add Friend </a>
 </td>
 </tr>
 </tbody>
