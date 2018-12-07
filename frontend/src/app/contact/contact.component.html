@@ -1,14 +1,17 @@
 <div class="container">
   <h1>Welcome {{user}}</h1>
  
- <div > 
- <input type="button" class="btn pull-right" (click)="userList()" name="newFriend" value="Create Friend">
+ <div class="row" > 
+ <input type="button" class="btn" (click)="userList()" name="newFriend" value="Create Friend">
+ <input type="button" class="btn" (click)="requestList()" name="receivedRequest" value="Received Requested">
  </div>
    
   <div>
   <h2>Friend List</h2>
   </div>
   
+  <div class="column">
+ 
   <table class="table">
     <thead>
       <tr>
@@ -16,12 +19,40 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let contact of contacts">
+      <tr *ngFor="let contact of friendList">
         <td>{{ contact.name }}</td>
-        <td><a [routerLink]="['/contact-detail', contact.id]">Show Detail</a></td>
+        <div *ngIf="contact.staus==0"><td> <input type="button" class="btn pull-right" (click)="pendingRequest(contact)" name="Friend1" value="Request Pending"></td></div>
+        <div *ngIf="contact.staus==1"><td> <input type="button" class="btn pull-right" (click)="chat(contact)" name="friend2" value="Chat"></td></div>
       </tr>
     </tbody>
   </table>
+ </div>
  
  
+
+<div class="column">
+<h3>Chat Box</h3>
+ <table class="table" >
+  <tr>
+    <th class="col1">{{user}}</th>
+    <th class="col2">{{receiver}}</th>
+    </tr>
+    <tbody *ngFor="let contact of chatData">
+      <tr >
+       <div *ngIf="contact.sender==user" style="float:left;">  
+       	<td> {{ contact.msg }}</td> 
+       </div>
+       <div *ngIf="contact.receiver==user" style="float:right;"> 
+        <td>{{ contact.msg }}</td> 
+       </div>
+        <div *ngIf="contact.staus==0"><td> <input type="button" class="btn pull-right" (click)="pendingRequest(contact)" name="Friend1" value="Request Pending"></td></div>
+        <div *ngIf="contact.staus==1"><td> <input type="button" class="btn pull-right" (click)="chat(contact)" name="friend2" value="Chat"></td></div>
+      </tr>
+    </tbody>
+  </table>
+     <input type="text" name="sendMessage" [(ngModel)]="chatmsg" >
+   <input type="button" class="btn" (click)="sendMessage()" name="sendMessage" value="Send">
+  
 </div>
+</div>
+

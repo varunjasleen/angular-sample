@@ -1,5 +1,6 @@
 <div>
-<h1>Customer List </h1>
+<
+<h1>Welcome {{user}} </h1>
 
 <table class="table">
 <thead class="thead-dark">
@@ -17,7 +18,11 @@
 <td>{{a.phone}}</td>
 
 <td>
-<a [routerLink]="['/customer-edit',a.id]">Add Friend </a>
+ <input type="button" class="btn" (click)="addFriend(a.name)" name="newFriend" value="Add Friend">
+ <input type="button" class="btn" (click)="sendMessage()" name="sendMessage" value="Send Message">
+ <input type="button" class="btn" (click)="pendingFriend()" name="pendingRequest" value="Pending Request">
+
+
 </td>
 </tr>
 </tbody>

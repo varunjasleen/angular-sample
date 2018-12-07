@@ -1,6 +1,6 @@
 package com.temp.angular.models;
 
-import java.util.List;
+import java.util.Set;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -17,6 +17,7 @@ public class User {
 	String rollRequested;
 	String rollassign;
 	 String password;
+	 private Set<FriendList> friendList;
 	
 	public User(){
 		
@@ -24,7 +25,7 @@ public class User {
 	
 	
 	public User(String id, String name, String address, String city, String phone, String email, String rollRequested,
-			String rollassign, String password) {
+			String rollassign, String password,Set<FriendList> friendList) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -35,6 +36,7 @@ public class User {
 		this.rollRequested = rollRequested;
 		this.rollassign = rollassign;
 		this.password = password;
+		this.setFriendList(friendList);
 	}
 
 
@@ -94,6 +96,17 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+
+	public Set<FriendList> getFriendList() {
+		return friendList;
+	}
+
+
+	public void setFriendList(Set<FriendList> friendList) {
+		this.friendList = friendList;
+	}
+
 
 	
 
